@@ -1,19 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {Paragraph, XStack, YStack, Stack} from "tamagui";
+import {Paragraph, XStack, YStack, Stack, Heading} from "tamagui";
 import { useColorScheme } from 'react-native';
 
 const WelcomeScreen = () => {
     const navigation = useNavigation();
     const colorScheme = useColorScheme();
     return (
-        <View style={styles.container}>
-            <Stack f={1} jc="center" ai="center" backgroundColor="$backgroundSoft">
-                <Paragraph color="$color" jc="center">
-                    {colorScheme}
-                </Paragraph>
-                <Text style={styles.title}>Welcome to Cleaners App</Text>
+
+            <Stack f={1} jc="center" ai="center" backgroundColor="black" >
+
+                <Heading color="white" size="$10">Welcome</Heading>
                 {/* Add any other content you want in the WelcomeScreen */}
                 <Button
                     title="Sign In"
@@ -22,7 +20,7 @@ const WelcomeScreen = () => {
             </Stack>
 
 
-        </View>
+
     );
 };
 

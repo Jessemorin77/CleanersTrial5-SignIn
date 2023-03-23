@@ -25,7 +25,7 @@ export default function App() {
 
     return (
         <TamaguiProvider config={config}>
-            <Theme name={colorScheme === 'dark' ? 'dark' : 'light'}>
+            <Theme name={colorScheme === 'dark'? 'dark' : 'light' }>
                 <NavigationContainer>
                     {user ? <UserStack /> : <AuthStack />}
                     <StatusBar style="auto" />
