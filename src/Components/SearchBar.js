@@ -28,7 +28,7 @@ const SearchBarComponent = ({ onSearch }) => {
             onClear={handleClear}
             value={search}
             lightTheme
-            round
+            rounded = "8"
             returnKeyType= "search"
             onSubmitEditing={() => onSearch(search)}
             onFocus={handleFocus}

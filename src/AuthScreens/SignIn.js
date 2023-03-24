@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Paragraph, XStack, YStack, Stack, Heading, Input} from "tamagui";
 import {
     View,
     Text,
@@ -37,16 +38,21 @@ function SignInScreen({ navigation }) {
     }
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Sign In</Text>
-            <TextInput
-                style={styles.input}
+        <Stack f={1} jc="center" ai="center" backgroundColor="black" >
+            <Heading  color="white" size="$9" marginBottom="$4">Sign In</Heading>
+            <Input
+                size="$3"
+                marginBottom="$3"
+                width="80%"
+                borderWidth={2}
                 placeholder="Email"
                 value={value.email}
                 onChangeText={(text) => setValue({ ...value, email: text })}
             />
-            <TextInput
-                style={styles.input}
+            <Input
+                size="$3"
+                width="80%"
+                borderWidth={2}
                 placeholder="Password"
                 onChangeText={(text) => setValue({ ...value, password: text })}
                 secureTextEntry={true}
@@ -54,7 +60,7 @@ function SignInScreen({ navigation }) {
             <TouchableOpacity style={styles.button} onPress={signIn}>
                 <Text style={styles.buttonText}>Sign In</Text>
             </TouchableOpacity>
-            <Text style={styles.signupText}>
+            <Paragraph color="white" size="$5">
                 Don't have an account?{" "}
                 <Text
                     style={styles.signupLink}
@@ -62,8 +68,8 @@ function SignInScreen({ navigation }) {
                 >
                     Sign Up
                 </Text>
-            </Text>
-        </View>
+            </Paragraph>
+        </Stack>
     );
 }
 
@@ -89,10 +95,11 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: "#007bff",
-        borderRadius: 4,
+        borderRadius: 10,
         paddingHorizontal: 20,
         paddingVertical: 10,
-        marginBottom: 15,
+        marginTop: 20,
+        marginBottom: 10,
     },
     buttonText: {
         color: "#fff",

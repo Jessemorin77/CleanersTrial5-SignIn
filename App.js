@@ -9,7 +9,10 @@ import AuthStack from './src/navigation/authStack';
 import DrawerNavigation from './src/navigation/drawerStack'; // Make sure the path is correct
 import config from './tamagui.config';
 import { useFonts } from 'expo-font';
+import {NativeBaseProvider} from "native-base";
 
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 export default function App() {
     const { user } = useAuth();
     const colorScheme = useColorScheme();
@@ -24,14 +27,20 @@ export default function App() {
     }
 
     return (
-        <TamaguiProvider config={config}>
-            <Theme name={colorScheme === 'dark'? 'dark' : 'light' }>
-                <NavigationContainer>
-                    {user ? <UserStack /> : <AuthStack />}
-                    <StatusBar style="auto" />
-                </NavigationContainer>
-            </Theme>
-        </TamaguiProvider>
+        <ApplicationProvider {...eva} theme={eva.light}>
+            <NativeBaseProvider>
+                <TamaguiProvider config={config}>
+                    <Theme name={colorScheme === 'dark'? 'dark' : 'light' }>
+                        <NavigationContainer>
+                            {user ? <UserStack /> : <AuthStack />}
+                            <StatusBar style="auto" />
+                        </NavigationContainer>
+                    </Theme>
+                </TamaguiProvider>
+            </NativeBaseProvider>
+        </ApplicationProvider>
+
+
     );
 }
 

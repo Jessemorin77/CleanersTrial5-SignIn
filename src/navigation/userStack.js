@@ -7,15 +7,22 @@ import HomeScreen from '../screens/HomeScreen';
 import PropertiesScreen from '../screens/PropertiesScreen';
 import AddPropertiesScreen from '../screens/AddPropertyScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import DrawerContent from '../Components/DrawerComponent';
+import {createDrawerNavigator} from "@react-navigation/drawer";
+import ContactUsScreen from "../screens/ContactUsScreen";
+import CalendarScreen from "../screens/CalendarScreen";
+import InboxScreen from "../screens/InboxScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 const HomeStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Home" component={HomeScreen} />
-        </Stack.Navigator>
+            <Stack.Screen name="ContactUs" component={ContactUsScreen}/>
+            </Stack.Navigator>
     );
 };
 
@@ -41,11 +48,24 @@ const TabNavigation = () => {
         <Tab.Navigator screenOptions={{ headerShown: false }}>
             <Tab.Screen name="Home" component={HomeStack} />
             <Tab.Screen name="Properties" component={PropertyStack} />
+            <Tab.Screen name="Calendar" component={CalendarScreen} />
+            <Tab.Screen name="Inbox" component={InboxScreen} />
+
         </Tab.Navigator>
     );
 };
 
-export default TabNavigation;
+const DrawerNavigation = () => {
+    return (
+        <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
+            <Drawer.Screen name="TabNavigation" component={TabNavigation} options={{ title: null }}/>
+            <Drawer.Screen name="Profile" component={ProfileStack} />
+        </Drawer.Navigator>
+    );
+};
+
+
+export default DrawerNavigation;
 
 
 //Nav Bar:
@@ -58,15 +78,11 @@ export default TabNavigation;
  <Tab.Screen name="Drawer" component={Drawer} />
 * TODO:
 *
-* make drawer
-*   ->drawer screens
-*       ->account screen
-*       ->contact us screen
-*       ->sign out button
+*
 *
 * homepage:
-*   ->search bar
-*   ->media bar
+*
+*
 *   ->Button Schedule job
 *       -> schedule jobs screen(choose: company/worker/contractor -> Search: work and List job categories -> list profiles)
 *   list: any scheduled jobs

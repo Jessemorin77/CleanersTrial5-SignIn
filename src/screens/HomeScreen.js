@@ -1,7 +1,11 @@
 
 import React, { useState } from 'react';
-import { View, FlatList, StyleSheet, Text,  } from 'react-native';
+import { View, FlatList, StyleSheet, Text, ScrollView } from 'react-native';
 import SearchBarComponent from '../Components/SearchBar';
+import { Box, Pressable, HStack, Badge, Spacer, Flex } from 'native-base';
+import BoxComponent from "../Components/BoxComponent";
+import ToDoBoxComponent from "../Components/ToDoBoxComponent";
+import CalenderBoxComponent from "../Components/CalenderBoxComponent";
 
 const DATA = [
     { id: '1', title: 'Item 1' },
@@ -29,10 +33,15 @@ const HomeScreen = () => {
     );
 
     return (
-        <View style={styles.container}>
-            <SearchBarComponent onSearch={handleSearch} />
-            
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <SearchBarComponent onSearch={handleSearch} />
+                <BoxComponent style={{ marginBottom: 20 }} />
+                <ToDoBoxComponent style={{ marginBottom: 20 }} />
+                <CalenderBoxComponent style={{ marginBottom: 20 }} />
+                <Text style={styles.text}>Scheduled Cleanings: </Text>
+            </View>
+        </ScrollView>
     );
 };
 
@@ -45,6 +54,11 @@ const styles = StyleSheet.create({
         padding: 20,
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
+    },
+    text: {
+        fontSize: 20,
+        marginTop: 20,
+        marginBottom: 20,
     },
 });
 
