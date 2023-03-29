@@ -11,6 +11,9 @@ import config from './tamagui.config';
 import { useFonts } from 'expo-font';
 import {NativeBaseProvider} from "native-base";
 
+import { GluestackUIProvider } from "@/"
+
+
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 export default function App() {
@@ -27,18 +30,21 @@ export default function App() {
     }
 
     return (
-        <ApplicationProvider {...eva} theme={eva.light}>
-            <NativeBaseProvider>
-                <TamaguiProvider config={config}>
-                    <Theme name={colorScheme === 'dark'? 'dark' : 'light' }>
-                        <NavigationContainer>
-                            {user ? <UserStack /> : <AuthStack />}
-                            <StatusBar style="auto" />
-                        </NavigationContainer>
-                    </Theme>
-                </TamaguiProvider>
-            </NativeBaseProvider>
-        </ApplicationProvider>
+        <GluestackUIProvider config={config.theme}>
+            <ApplicationProvider {...eva} theme={eva.light}>
+                <NativeBaseProvider>
+                    <TamaguiProvider config={config}>
+                        <Theme name={colorScheme === 'dark'? 'dark' : 'light' }>
+                            <NavigationContainer>
+                                {user ? <UserStack /> : <AuthStack />}
+                                <StatusBar style="auto" />
+                            </NavigationContainer>
+                        </Theme>
+                    </TamaguiProvider>
+                </NativeBaseProvider>
+            </ApplicationProvider>
+        </GluestackUIProvider>
+
 
 
     );

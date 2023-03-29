@@ -14,7 +14,7 @@ const DATA = [
     // ...
 ];
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredData, setFilteredData] = useState(DATA);
 
@@ -36,9 +36,14 @@ const HomeScreen = () => {
         <ScrollView>
             <View style={styles.container}>
                 <SearchBarComponent onSearch={handleSearch} />
-                <BoxComponent style={{ marginBottom: 20 }} />
+               <Pressable onPress={() => navigation.navigate('WorkType')}>
+                   <BoxComponent style={{ marginBottom: 20 }} />
+               </Pressable>
+                <Pressable onPress={() => navigation.navigate('Calendar')}>
+                    <CalenderBoxComponent style={{ marginBottom: 20 }} />
+                </Pressable>
                 <ToDoBoxComponent style={{ marginBottom: 20 }} />
-                <CalenderBoxComponent style={{ marginBottom: 20 }} />
+
                 <Text style={styles.text}>Scheduled Cleanings: </Text>
             </View>
         </ScrollView>

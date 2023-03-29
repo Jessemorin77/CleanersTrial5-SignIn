@@ -4,8 +4,8 @@ import { Box, Pressable, HStack, Badge, Spacer, Flex, Text } from 'native-base';
 const CalenderBoxComponent = () => {
     return (
         <Box alignItems="center">
-            <Pressable
-                onPress={() => console.log("I'm Pressed")}
+            <Box
+
                 rounded="10"
                 overflow="hidden"
                 borderWidth="1"
@@ -45,7 +45,7 @@ const CalenderBoxComponent = () => {
                         </Text>
                     </Flex>
                 </Box>
-            </Pressable>
+            </Box>
         </Box>
     );
 };

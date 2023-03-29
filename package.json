@@ -9,7 +9,9 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@dank-style/react": "latest",
     "@eva-design/eva": "^2.1.1",
+    "@gluestack-ui/provider": "latest",
     "@react-native-firebase/app": "^17.3.2",
     "@react-navigation/bottom-tabs": "^6.5.7",
     "@react-navigation/drawer": "^6.6.2",
@@ -29,6 +31,7 @@
     "expo-image-picker": "^14.1.1",
     "expo-status-bar": "~1.4.4",
     "firebase": "^9.17.2",
+    "gluestack-ui": "^0.1.14",
     "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
@@ -45,7 +48,8 @@
     "tamagui": "^1.8.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "react-native-web": "^0.18.12"
   },
   "private": true
 }

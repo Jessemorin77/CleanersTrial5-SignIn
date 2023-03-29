@@ -12,6 +12,8 @@ import {createDrawerNavigator} from "@react-navigation/drawer";
 import ContactUsScreen from "../screens/ContactUsScreen";
 import CalendarScreen from "../screens/CalendarScreen";
 import InboxScreen from "../screens/InboxScreen";
+import ScheduleCleaningScreen from "../screens/ScheduleCleaningScreen";
+import WorkTypeScreen from "../screens/WorkTypeScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -26,6 +28,15 @@ const HomeStack = () => {
     );
 };
 
+const ScheduleStack = () => {
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+
+            <Stack.Screen name="ScheduleCleaning" component={ScheduleCleaningScreen} />
+
+        </Stack.Navigator>
+    );
+};
 const PropertyStack = () => {
     return (
         <Stack.Navigator>
@@ -59,7 +70,10 @@ const DrawerNavigation = () => {
     return (
         <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
             <Drawer.Screen name="TabNavigation" component={TabNavigation} options={{ title: null }}/>
+            <Drawer.Screen name="ScheduleCleaning" component={ScheduleCleaningScreen} />
+            <Drawer.Screen name="WorkType" component={WorkTypeScreen} />
             <Drawer.Screen name="Profile" component={ProfileStack} />
+
         </Drawer.Navigator>
     );
 };

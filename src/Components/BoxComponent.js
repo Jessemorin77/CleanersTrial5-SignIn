@@ -4,8 +4,7 @@ import { Box, Pressable, HStack, Badge, Spacer, Flex, Text } from 'native-base';
 const BoxComponent = () => {
     return (
         <Box alignItems="center">
-            <Pressable
-                onPress={() => console.log("I'm Pressed")}
+            <Box
                 rounded="10"
                 overflow="hidden"
                 borderWidth="1"
@@ -13,8 +12,7 @@ const BoxComponent = () => {
                 maxW="96"
                 shadow="3"
                 bg="coolGray.100"
-                p="10"
-            >
+                p="10">
                 <Box>
                     <HStack alignItems="center">
                         <Badge
@@ -44,9 +42,22 @@ const BoxComponent = () => {
                         </Text>
                     </Flex>
                 </Box>
-            </Pressable>
+            </Box>
         </Box>
     );
 };
 
 export default BoxComponent;
+
+/*
+*  <Pressable
+                onPress={() => console.log("I'm Pressed")}
+                rounded="10"
+                overflow="hidden"
+                borderWidth="1"
+                borderColor="coolGray.300"
+                maxW="96"
+                shadow="3"
+                bg="coolGray.100"
+                p="10"
+            >*/
